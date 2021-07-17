@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <Operation Class="O21HDPawns.PatchOperation_SettingActive">
+        <settings>
+            <li>slimRim</li>
+        </settings>
+        <active Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+			<success>Always</success>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef[defName="Human"]/comps</xpath>
+				<value>
+					<li Class="O21HDPawns.CompProperties_SlimRim"></li>
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef[defName="Human"]</xpath>
+				<value>
+					<comps>
+						<li Class="O21HDPawns.CompProperties_SlimRim"></li>
+					</comps>
+				</value>
+			</nomatch>
+        </active>
+    </Operation>
+
+</Patch>
